@@ -1,6 +1,7 @@
-# Upstream analysis of scRNA of human NK cells ex vivo: QC, normalization,
-# scaling, clustering and dim-reduction
+#Last Updated 04/17/2025 - Ashley Gin & Elif Kulaksizoglu
+#Adapted from Ruckert et al. Nature Immunology, 2022
 
+# Analysis of scRNA of human NK cells via UMAP clustering 
 rm(list=ls())
 
 library(dplyr)
@@ -16,7 +17,7 @@ library(Matrix)
 library(data.table)
 library(stringr)
 
-path <- "~/Downloads/20440_NK/Clonal_NK/data/raw_ungunzipped/"
+path <- "~/path/to/downloaded/git_data_directory"
 
 # Enable parallelization via mclapply
 ncores <- detectCores()-1
@@ -262,8 +263,6 @@ my_SeuratList[[2]] <- RunUMAP(my_SeuratList[[2]], dims = 1:14, verbose = FALSE, 
 my_SeuratList[[3]] <- RunUMAP(my_SeuratList[[3]], dims = 1:15, verbose = FALSE, n.neighbors = 20)
 my_SeuratList[[4]] <- RunUMAP(my_SeuratList[[4]], dims = 1:10, verbose = FALSE, n.neighbors = 20)
 my_SeuratList[[5]] <- RunUMAP(my_SeuratList[[5]], dims = 1:13, verbose = FALSE, n.neighbors = 20)
-# my_SeuratList[[6]] <- RunUMAP(my_SeuratList[[6]], dims = 1:14, verbose = FALSE, n.neighbors = 20)
-# my_SeuratList[[7]] <- RunUMAP(my_SeuratList[[7]], dims = 1:14, verbose = FALSE, n.neighbors = 20)
 
 #remove 6 and 7 (lib A and B) because we dont want those dang patients :)
 my_SeuratList <- my_SeuratList[-c(6, 7)]
