@@ -1,4 +1,4 @@
-Last Updated: 04/17/2025 by Ashley Gin (20.440 PS6)
+Last Updated: 05/12/2025 by Ashley Gin & Elif Kulaksizoglu (20.440 Term Project)
 
 # **Characterizing Natural Killer Cell Subsets Contributing to Antiviral Memory**
 
